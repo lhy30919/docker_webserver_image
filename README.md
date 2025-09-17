@@ -7,7 +7,7 @@
 <img width="auto" height="188" alt="3" src="https://github.com/user-attachments/assets/0ead590d-ff91-4eae-8d2d-b772cddba46d" /><br>
 
 #### 컨테이너 생성&실행 & 도커 네트워크 ####
-사전에 docker network create 작업
+사전에 docker network create 작업 <br>
 <img width="auto" height="188" alt="7" src="https://github.com/user-attachments/assets/5613b30e-e91d-4176-a61c-cced39d233bf" /><br>
 
 #### 이미지, 컨테이너 확인 ####
@@ -15,6 +15,7 @@
 
 #### 웹 접속 & 정상 작동 확인 ####
 <img width="auto" height="188" alt="6" src="https://github.com/user-attachments/assets/11979cb6-4ed9-4c97-b127-27cc639b4eca" /><br>
+
 
 
 
