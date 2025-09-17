@@ -1,0 +1,85 @@
+####1. 작업디렉토리 생성&이동
+mkdir -p ~/docker/web && cd ~/docker/web
+
+####2. 이미지 pull
+docker pull ubuntu:22.04
+
+####3. index.html 생성
+vi index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Docker Web Server</title>
+</head>
+<body>
+  <h1>Docker 웹 서버가 정상 작동 중입니다!</h1>
+  <p>이 페이지는 Docker 컨테이너에서 제공되고 있습니다.</p>
+</body>
+</html>
+
+####4.이미지 빌드
+docker build -t webserverimage -f Dockerfile .
+
+####5.컨테이너 실행
+docker run -d -p 8080:80 --name webserverc webserverimage
+
+#####6.웹 접속
+firefox http://localhost:8080
+#####[첫 번째 터미널]
+#컨테이너 상태 확인
+docker ps
+
+#컨테이너 접속
+docker exec -it webserverc /bin/bash
+
+#Apache 프로세스 상태 확인
+ps aux | grep apache2
+
+#index.html 내용 확인
+cat /var/www/html/index.html
+
+#로그 파일 확인 (접속 기록 등)
+tail -f /var/log/apache2/access.log
+
+######[두 번째 터미널]
+
+#웹 페이지 접속 테스트 (첫번째 터미널에서 접속기록 확인)
+curl http://localhost:8080
+
+#브라우저로 접속
+firefox http://localhost:8080
+
+###### network 설정
+docker network create web
+docker run -d --name web -p 8080:80 --network web -v ~/docker/web/index.html:/var/www/html/index.html webserverimage
+
+##### Dockerfile 작성
+WEB
+# Dockerfile.web
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+
+
+# Apache 설치
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    rm -rf /var/lib/apt/lists/*
+
+# 웹 페이지 복사
+COPY index.html /var/www/html/index.html
+
+# 포트 오픈
+EXPOSE 80
+
+# 실행
+CMD ["apachectl", "-D", "FOREGROUND"]
+
+#####7. 컨테이너 & 이미지 정지 및 삭제
+docker stop webserverc
+docker rm webserverc
+docker rmi webserverimage
+
