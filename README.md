@@ -9,9 +9,10 @@
 <img width="auto" height="188" alt="4" src="https://github.com/user-attachments/assets/577a3042-cfc6-4719-ae12-ccb8b88ce1f6" /><br>
 <img width="auto" height="188" alt="5" src="https://github.com/user-attachments/assets/5952249a-b2c7-4e8e-bb8e-860ab228bf54" /><br>
 <img width="auto" height="188" alt="7" src="https://github.com/user-attachments/assets/5613b30e-e91d-4176-a61c-cced39d233bf" /><br>
-<img width="auto" height="188" alt="web1" src="https://github.com/user-attachments/assets/5bacfd14-766d-4876-ae54-10e411461619" /><br>
+
 #### 웹 접속 & 정상 작동 확인 ####
 <img width="auto" height="188" alt="6" src="https://github.com/user-attachments/assets/11979cb6-4ed9-4c97-b127-27cc639b4eca" /><br>
+
 
 
 
